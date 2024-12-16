@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="🎉 Welcome to the Anshu website ! 🎉 | Dive into my First Web Development project! 🌐✨">
+  <meta itemprop="name" content="Anshu Web">
+  <meta itemprop="description" content="Anshu web | Celebrating My First Steps in Web Development 🌟 This project marks the beginning of my exciting journey into the world of web development.">
+  <meta itemprop="image" content="img/main.png">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Poppins:wght@100;200;300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  
+  <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: serif;
+    display: flex;
+    background-color: #081b29;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-x: hidden;
+    place-items: center;
+    
+  }
+  
+  canvas {
+              position: absolute; 
+              top: 0;
+              left: 0;
+              max-width: 100%; 
+              max-height: 100%; 
+              pointer-events: none;
+              z-index: -1;
+          }
+  
+  
+  #gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+  }
+  
+  #sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px; 
+      width: 250px;
+      height: 100%;
+      background: transparent;
+      color: white;
+      transition: left 0.3s ease;
+      z-index: 1000;
+      padding: 80px 20px 20px;
+      backdrop-filter: blur(30px);
+  }
+  
+  #sidebar.active {
+      left: 0;
+  }
+  
+  #sidebar a {
+      display: block;
+      padding: 15px;
+      font-size: 1em;
+      color: white;
+      text-decoration: none;
+      border-bottom: 1px solid cyan;
+  }
+  
+  #sidebar a:hover {
+     background: #03e9f4;
+      color: #050801;
+      box-shadow: 0 0 5px #03e9f4,
+                  0 0 25px #03e9f4,
+                  0 0 50px #03e9f4,
+                  0 0 200px #03e9f4;
+       -webkit-box-reflect:below 1px linear-gradient(transparent, #0005);
+  }
+  
+  
+  #menu-icon {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 1.2em;
+      color: white;
+      z-index: 1001;
+      cursor: pointer;
+  }
+  
+  #menu-icon i {
+      color: white;
+  }
+  
+  #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 999;
+  }
+  
+  #overlay.active {
+      visibility: visible;
+      opacity: 1;
+  }
+  
+  .png-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: multiGlow 70s infinite;
+      animation-delay: 1s; 
+    filter: drop-shadow(0 0 2rem cyan); 
+  }
+  
+  
+  
+  
+  img {
+    max-width: 50%;
+  }
+  
+  .glitch {
+      position: relative;
+      text-align: center;
+      transform: translate(-50%, -50%); 
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: #fff;
+      top: 20px;
+      letter-spacing: 5px;
+      z-index: 1;
+      animation: shift 1s ease-in-out infinite alternate;
+      text-decoration: underline;
+      text-decoration-color: cyan;
+  }
+  
+  .glitch:before,
+  .glitch:after {
+      display: block;
+      content: ""; 
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.8;
+    
+  }
+  
+  .glitch:before {
+      animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+      color: black;
+      z-index: -1;
+    text-align: center;
+  }
+  
+  .glitch:after {
+      animation: glitch 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+      color: cyan;
+      z-index: -2;
+    text-align: center;
+  }
+  
+  
+  
+  .myname {
+      
+      font-size: 25px;
+      font-weight: 50;
+      color: white; 
+      margin-left: 10px;
+      margin-top: 20px;
+      white-space: pre-wrap; 
+      text-align: left; 
+      font-family: serif;
+      position: absolute;
+      top: 330px; 
+      left: -15px; 
+  }
+  
+  #typingText {
+      color: cyan; 
+  }
+  
+  
+  .about-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 2s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1.9em;
+    margin-top: 123px;
+    
+    text-decoration: underline;
+    text-decoration-color: yellowgreen;
+    
+  }
+  
+  @keyframes slideLeft {
+      0% {
+          transform: translateX(100px);
+          opacity: 0;
+      }
+      100% {
+          transform: translateX(0);
+          opacity: 1;
+      }
+  }
+  
+  #greeting-text {
+      font-size: 17px;
+      color: whitesmoke;
+      margin-top: 20px;
+    margin-left: 30px;
+      animation: slideLeft 2s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    white-space: nowrap;
+  }
+  
+  .about-me-content {
+    font-size: 11px;
+      color: whitesmoke;
+      margin-top: 20px;
+    margin-left: 30px;
+      animation: slideTop 2s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+  }
+  
+  
+  
+  
+  
+  .skills-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-left: 20px;
+      padding-top: 20px;
+  }
+  
+  .skill-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      width: 500px;
+  }
+  
+  .skill-info {
+      display: flex;
+      align-items: center;
+      width: 180px; 
+  }
+  
+  .skill-icon {
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+  }
+  
+  .skill-text {
+      font-size: 16px;
+      font-weight: bold;
+    color: aliceblue;
+  }
+  
+  .skill-bar {
+      width: 200%;
+      height: 17px;
+      background-color: #e0e0e0;
+      border-radius: 10px;
+    border-color: transparent;
+      overflow: hidden;
+      margin-left: 60px;
+  }
+  
+  .skill-progress {
+      height: 100%;
+      border-radius: 10px 0 0 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .python {
+      width: 75%; 
+      background-color: purple;
+    box-shadow: 0 0 150px 50px purple;
+  }
+  
+  .html {
+      width: 50%; 
+      background-color: brown;
+    box-shadow: 0 0 150px 50px brown;
+  }
+  
+  .css {
+      width: 78%; 
+      background-color: blue;
+    box-shadow: 0 0 150px 50px blue;
+  }
+  
+  .javascript {
+      width: 40%; 
+      background-color: yellow;
+    box-shadow: 0 0 10px 50px yellow;
+  }
+  
+  .typescript {
+      width: 10%; 
+      background-color: cyan;
+    box-shadow: 0 0 10px 11px cyan;
+  }
+  
+  .java {
+    width: 1%; 
+      background-color: purple;
+    box-shadow: 0 0 150px 50px purple;
+  }
+  
+  .mongodb {
+    width: 40%; 
+      background-color: forestgreen;
+    box-shadow: 0 0 150px 50px forestgreen;
+  }
+  
+  .skill-text-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 2s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1.9em;
+   
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: yellowgreen;
+    margin-top: 20px;
+  }
+  
+  .my-bots-txt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 3s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1.9em;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+    text-decoration-color: pink;
+  }
+  
+  
+  .github-stats-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 3s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1.9em;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+    text-decoration-color: purple;
+  }
+  
+  .visitors-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 3s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+    text-decoration-color: purple;
+  }
+  
+  
+  .visitors {
+    width: 44%;
+    height: 4%;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    animation: Scale 2s ease forwards; 
+      scale: 0; 
+      animation-delay: 2s; 
+    margin-left: 96px;
+    margin-top: 10px;
+  }
+  
+  
+  
+  
+  
+  
+  .github-stats {
+    
+    max-width: 150%;
+    height: 50%;
+    opacity: 1;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-top: 40px;
+    animation: Scale 2s ease forwards; 
+      scale: 0; 
+      animation-delay: 2s; 
+  }
+  
+  .Zgithub-stats {
+    max-width: 150%;
+    height: 50%;
+    opacity: 1;
+    border-radius: 10px;
+    margin-left: 20px;
+    animation: Scale 2s ease forwards; 
+      scale: 0; 
+      animation-delay: 2s; 
+  }
+  
+  
+  .most-lang {
+    max-width: 150%;
+    height: 50%;
+    opacity: 1;
+    border-radius: 10px;
+    margin-left: 40px;
+    animation: Scale 2s ease forwards; 
+      scale: 0; 
+      animation-delay: 2s; 
+  }
+  
+  
+  .contact-me-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 4s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1.6em;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+    text-decoration-color: green;
+    
+  }
+  
+  .contact-me-c {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideLeft 4s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    color: whitesmoke;
+    width: auto;
+    height: auto;
+    white-space: nowrap;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 20px;
+    
+  }
+  
+  .social-media {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+  }
+  
+  .social-media a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      background: transparent;
+      border: 2px solid cyan;
+      border-radius: 50%;
+      font-size: 20px;
+      color: cyan;
+      text-decoration: none;
+      margin: 0 15px;
+      transition: 0.5s ease;
+      opacity: 0;
+      animation: slideLeft 3s ease forwards;
+      animation-delay: calc(.2s * var(--i));
+  }
+  
+  .social-media a:hover {
+      background-color: cyan;
+      color: black;
+      box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
+  }
+  
+  .footer {
+    background-color: transparent;
+    color: white;              
+    text-align: center;         
+    padding: 20px 0;    
+    position: relative;
+    bottom: 0;
+    top: 40px;
+    width: 100%;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .footer-content p {
+    margin: 5px 0;              
+  }
+  
+  .footer-content p:first-child {
+    font-weight: 700;           
+  }
+  
+  .footer-content p:last-child {
+    font-size: 0.9rem;    
+  }
+  
+  
+  
+  .loader {
+    width: 160px;
+    height: 185px;
+    position: relative;
+    background: #fff;
+    border-radius: 100px 100px 0 0;
+    margin-top: 30px;
+  }
+  .loader:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 125px;
+    left: 50%;
+    top: 25px;
+    transform: translateX(-50%);
+    background-image: radial-gradient(circle, #000 48%, transparent 55%),
+      radial-gradient(circle, #000 48%, transparent 55%),
+      radial-gradient(circle, #fff 30%, transparent 45%),
+      radial-gradient(circle, #000 48%, transparent 51%),
+      linear-gradient(#000 20px, transparent 0),
+      linear-gradient(#cfecf9 60px, transparent 0),
+      radial-gradient(circle, #cfecf9 50%, transparent 51%),
+      radial-gradient(circle, #cfecf9 50%, transparent 51%);
+    background-repeat: no-repeat;
+    background-size: 16px 16px, 16px 16px, 10px 10px, 42px 42px, 12px 3px,
+      50px 25px, 70px 70px, 70px 70px;
+    background-position: 25px 10px, 55px 10px, 36px 44px, 50% 30px, 50% 85px,
+      50% 50px, 50% 22px, 50% 45px;
+    animation: faceLift 3s linear infinite alternate;
+  }
+  .loader:before {
+    content: "";
+    position: absolute;
+    width: 140%;
+    height: 125px;
+    left: -20%;
+    top: 0;
+    background-image: radial-gradient(circle, #fff 48%, transparent 50%),
+      radial-gradient(circle, #fff 48%, transparent 50%);
+    background-repeat: no-repeat;
+    background-size: 65px 65px;
+    background-position: 0px 12px, 145px 12px;
+    animation: earLift 3s linear infinite alternate;
+  }
+  
+  
+  </style>
+  <style>
+    .chiku {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  margin-left: 60px;
+  backdrop-filter: blur(5px);
+    animation: Scale 2.7s ease forwards; 
+    scale: 0; 
+    animation-delay: 2s; 
+}
+
+.chiku-profile-img {
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
+  margin-left: 50px;
+}
+
+.chiku-description-bg {
+  background: linear-gradient(0deg, #ff5f6d, #ffc371);
+
+  border-radius: 30px;
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  height: 65%;
+  width: 100%;
+ }
+
+
+
+.chiku-description {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  left: 10px;
+  top: -8%;
+}
+
+.chiku-btn {
+  position: absolute;
+  color: #fff;
+  left: 13px;
+  bottom: 6%;
+  
+}
+
+.chiku-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    box-shadow: 0 0 5px #FF5C00, 0 0 10px #FF5C00;
+    transition: box-shadow 1s ease;
+}
+
+.chiku-btn a:hover {
+    box-shadow: 0 0 5px #FF5C00, 0 0 25px #FF5C00, 0 0 50px #FF5C00, 0 0 100px #FF5C00, 0 0 200px #FF5C00;
+  background: #FF5C00;
+  color: black;
+  
+}
+
+.repo-btn {
+  position: absolute;
+  color: #fff;
+  right: 13px;
+  bottom: 6%;
+  
+}
+
+.repo-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+  box-shadow: 0 0 5px #FF5C00, 0 0 10px #FF5C00;
+    transition: box-shadow 1s ease;
+}
+
+.repo-btn a:hover {
+    box-shadow: 0 0 5px #FF5C00, 0 0 25px #FF5C00, 0 0 50px #FF5C00, 0 0 100px #FF5C00, 0 0 200px #FF5C00;
+  background: #FF5C00;
+  color: black;
+}
+
+
+.Neko {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  margin-left: 60px;
+  backdrop-filter: blur(5px);
+    animation: Scale 2.7s ease forwards; 
+    scale: 0; 
+    animation-delay: 2s; 
+}
+
+.Neko-profile-img {
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
+  margin-left: 50px;
+  margin-top: -20px;
+}
+
+.Neko-description-bg {
+  background: linear-gradient(0deg, #f953c6, #b91d73);
+
+  border-radius: 30px;
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  height: 65%;
+  width: 100%;
+ }
+
+
+
+.Neko-description {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  left: 10px;
+  top: -4%;
+}
+
+.Neko-btn {
+  position: absolute;
+  color: #fff;
+  left: 13px;
+  bottom: 6%;
+  
+}
+
+.Neko-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: #A8E6CF;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    box-shadow: 0 0 5px #DA70D6, 0 0 10px #DA70D6;
+    transition: box-shadow 1s ease;
+}
+
+.Neko-btn a:hover {
+    box-shadow: 0 0 5px #DA70D6, 0 0 25px #DA70D6, 0 0 50px #DA70D6, 0 0 100px #DA70D6, 0 0 200px #DA70D6;
+  background: #DA70D6;
+  color: black;
+  
+}
+
+.Nekos-btn {
+  position: absolute;
+  color: #fff;
+  right: 13px;
+  bottom: 6%;
+  
+}
+
+.Nekos-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: #A8E6CF;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+  box-shadow: 0 0 5px orchid, 0 0 10px orchid;
+    transition: box-shadow 1s ease;
+}
+
+.Nekos-btn a:hover {
+    box-shadow: 0 0 5px #DA70D6, 0 0 25px #DA70D6, 0 0 50px #DA70D6, 0 0 100px #DA70D6, 0 0 200px #DA70D6;
+  background: #DA70D6;
+  color: black;
+}
+
+
+.Music {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  margin-left: 60px;
+  backdrop-filter: blur(5px);
+    animation: Scale 2.7s ease forwards; 
+    scale: 0; 
+    animation-delay: 2s; 
+}
+
+.Music-profile-img {
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
+  
+}
+
+.Music-description-bg {
+  background: linear-gradient(0deg, #654ea3, #eaafc8);
+
+  border-radius: 30px;
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  height: 65%;
+  width: 100%;
+ 
+}
+
+
+
+.Music-description {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  left: 10px;
+  top: -8%;
+}
+
+.Music-btn {
+  position: absolute;
+  color: #fff;
+  left: 13px;
+  bottom: 6%;
+  
+}
+
+.Music-btn a {
+    display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: #9FE2BF;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    box-shadow: 0 0 5px #9FE2BF, 0 0 10px #9FE2BF;
+    transition: box-shadow 1s ease;
+}
+
+.Music-btn a:hover {
+    box-shadow: 0 0 5px #9FE2BF, 0 0 25px #9FE2BF, 0 0 50px #9FE2BF, 0 0 100px #9FE2BF, 0 0 200px #9FE2BF;
+  background: #9FE2BF;
+  color: black;
+  
+}
+
+.Music2-btn {
+  position: absolute;
+  color: #fff;
+  right: 13px;
+  bottom: 6%;
+  
+}
+
+.Music2-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: #9FE2BF;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+  box-shadow: 0 0 5px #9FE2BF, 0 0 10px #9FE2BF;
+    transition: box-shadow 1s ease;
+}
+
+.Music2-btn a:hover {
+    box-shadow: 0 0 5px #9FE2BF, 0 0 25px #9FE2BF, 0 0 50px #9FE2BF, 0 0 100px #9FE2BF, 0 0 200px #9FE2BF;
+  background: #9FE2BF;
+  color: black;
+}
+
+.Pokedex {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  margin-left: 60px;
+  backdrop-filter: blur(5px);
+    animation: Scale 2.7s ease forwards; 
+    scale: 0; 
+    animation-delay: 2s; 
+}
+
+.Pokedex-profile-img {
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
+  
+}
+
+.Pokedex-description-bg {
+  background: linear-gradient(90deg, #3a7bd5, #3a7bd5);
+
+
+  border-radius: 30px;
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  height: 65%;
+  width: 100%;
+ 
+}
+
+
+
+.Pokedex-description {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  left: 10px;
+  top: -8%;
+}
+
+.Pokedex-btn {
+  position: absolute;
+  color: #D4A5A5;
+  left: 13px;
+  bottom: 6%;
+  
+}
+
+.Pokedex-btn a {
+    display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    box-shadow: 0 0 5px #B3E5FC, 0 0 10px #B3E5FC;
+    transition: box-shadow 1s ease;
+}
+
+.Pokedex-btn a:hover {
+    box-shadow: 0 0 5px #B3E5FC, 0 0 25px #B3E5FC, 0 0 50px #B3E5FC, 0 0 100px #B3E5FC, 0 0 200px #B3E5FC;
+  background: #B3E5FC;
+  color: black;
+  
+}
+
+.Pokedex2-btn {
+  position: absolute;
+  color: green;
+  right: 13px;
+  bottom: 6%;
+  
+}
+
+.Pokedex2-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: black;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+  box-shadow: 0 0 5px #B3E5FC, 0 0 10px #B3E5FC;
+    transition: box-shadow 1s ease;
+}
+
+.Pokedex2-btn a:hover {
+    box-shadow: 0 0 5px #B3E5FC, 0 0 25px #B3E5FC, 0 0 50px #B3E5FC, 0 0 100px #B3E5FC, 0 0 200px #B3E5FC;
+  background: #B3E5FC;
+  color: black;
+}
+
+.Insta {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  margin-left: 60px;
+  backdrop-filter: blur(5px);
+    animation: Scale 2.7s ease forwards; 
+    scale: 0; 
+    animation-delay: 2s; 
+}
+
+.Insta-profile-img {
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
+  
+}
+
+.Insta-description-bg {
+  background: linear-gradient(90deg, #11998e, #38ef7d);
+
+  border-radius: 30px;
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  height: 65%;
+  width: 100%;
+ 
+}
+
+
+
+.Insta-description {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  left: 10px;
+  top: -8%;
+}
+
+.Insta-btn {
+  position: absolute;
+  color: #D4A5A5;
+  left: 13px;
+  bottom: 6%;
+  
+}
+
+.Insta-btn a {
+    display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: fuchsia;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    box-shadow: 0 0 5px #B3E5FC, 0 0 10px #B3E5FC;
+    transition: box-shadow 1s ease;
+}
+
+.Insta-btn a:hover {
+    box-shadow: 0 0 5px #B3E5FC, 0 0 25px #B3E5FC, 0 0 50px #B3E5FC, 0 0 100px #B3E5FC, 0 0 200px #B3E5FC;
+  background: #B3E5FC;
+  color: black;
+  
+}
+
+.Insta2-btn {
+  position: absolute;
+  color: green;
+  right: 13px;
+  bottom: 6%;
+  
+}
+
+.Insta2-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: fuchsia;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+  box-shadow: 0 0 5px #B3E5FC, 0 0 10px #B3E5FC;
+    transition: box-shadow 1s ease;
+}
+
+.Insta2-btn a:hover {
+    box-shadow: 0 0 5px #B3E5FC, 0 0 25px #B3E5FC, 0 0 50px #B3E5FC, 0 0 100px #B3E5FC, 0 0 200px #B3E5FC;
+  background: #B3E5FC;
+  color: black;
+}
+
+.Ai {
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  min-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+  margin-left: 60px;
+  backdrop-filter: blur(5px);
+    animation: Scale 2.7s ease forwards; 
+    scale: 0; 
+    animation-delay: 2s; 
+}
+
+.Ai-profile-img {
+  max-width: 100%;
+  height: 75%;
+  object-fit: cover;
+  margin-top: -30px;
+  margin-left: 50px;
+}
+
+.Ai-description-bg {
+  background: linear-gradient(135deg, #2b5876 0%, #4e4376 100%);
+
+  border-radius: 30px;
+  position: absolute;
+  top: 60%;
+  left: 0px;
+  height: 65%;
+  width: 100%;
+ 
+}
+
+
+
+.Ai-description {
+  position: relative;
+  color: #fff;
+  font-size: 12px;
+  left: 10px;
+  top: 1%;
+}
+
+.Ai-btn {
+  position: absolute;
+  color: #D4A5A5;
+  left: 13px;
+  bottom: 6%;
+  
+}
+
+.Ai-btn a {
+    display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+    box-shadow: 0 0 5px #FF6B6B, 0 0 10px #FF6B6B;
+    transition: box-shadow 1s ease;
+}
+
+.Ai-btn a:hover {
+    box-shadow: 0 0 5px #FF6B6B, 0 0 25px #FF6B6B, 0 0 50px #FF6B6B, 0 0 100px #FF6B6B, 0 0 200px #FF6B6B;
+  background: #FF6B6B;
+  color: black;
+  
+}
+
+.Ai2-btn {
+  position: absolute;
+  color: green;
+  right: 13px;
+  bottom: 6%;
+  
+}
+
+.Ai2-btn a {
+  display: inline-block;
+    padding: 6px 7px;
+    background: transparent;
+    border-radius: 16px;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    text-decoration: none;
+    
+  box-shadow: 0 0 5px #FF6B6B, 0 0 10px #FF6B6B;
+    transition: box-shadow 1s ease;
+}
+
+.Ai2-btn a:hover {
+    box-shadow: 0 0 5px #FF6B6B, 0 0 25px #FF6B6B, 0 0 50px #FF6B6B, 0 0 100px #FF6B6B, 0 0 200px #FF6B6B;
+  background: #FF6B6B;
+  color: black;
+}
+
+
+  </style>
+  <style>
+    @keyframes Scale {
+    to {
+        scale: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+@keyframes multiGlow {
+    0% {
+        filter: drop-shadow(0 0 2rem cyan);
+    }
+    6.25% {
+        filter: drop-shadow(0 0 2rem magenta);
+    }
+    12.5% {
+        filter: drop-shadow(0 0 2rem yellow);
+    }
+    18.75% {
+        filter: drop-shadow(0 0 2rem lime);
+    }
+    25% {
+        filter: drop-shadow(0 0 2rem red);
+    }
+    31.25% {
+        filter: drop-shadow(0 0 2rem blue);
+    }
+    37.5% {
+        filter: drop-shadow(0 0 2rem orange);
+    }
+    43.75% {
+        filter: drop-shadow(0 0 2rem purple);
+    }
+    50% {
+        filter: drop-shadow(0 0 2rem pink);
+    }
+    56.25% {
+        filter: drop-shadow(0 0 2rem lightblue);
+    }
+    62.5% {
+        filter: drop-shadow(0 0 2rem lightgreen);
+    }
+    68.75% {
+        filter: drop-shadow(0 0 2rem gold);
+    }
+    75% {
+        filter: drop-shadow(0 0 2rem coral);
+    }
+    81.25% {
+        filter: drop-shadow(0 0 2rem turquoise);
+    }
+    87.5% {
+        filter: drop-shadow(0 0 2rem violet);
+    }
+    93.75% {
+        filter: drop-shadow(0 0 2rem chartreuse);
+    }
+    100% {
+        filter: drop-shadow(0 0 2rem cyan);
+    }
+}
+
+
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(-3px, 3px);
+    }
+    40% {
+        transform: translate(-3px, -3px);
+    }
+    60% {
+        transform: translate(3px, 3px);
+    }
+    80% {
+        transform: translate(3px, -3px);
+    }
+    to {
+        transform: translate(0);
+    }
+}
+
+@keyframes shift {
+    0%, 40%, 44%, 58%, 61%, 65%, 69%, 73%, 100% {
+        transform: skewX(0deg);
+    }
+    41% {
+        transform: skewX(10deg);
+    }
+    42% {
+        transform: skewX(-10deg);
+    }
+    59% {
+        transform: skewX(40deg) skewY(10deg);
+    }
+    60% {
+        transform: skewX(-40deg) skewY(-10deg);
+    }
+    63% {
+        transform: skewX(10deg) skewY(-5deg);
+    }
+    70% {
+        transform: skewX(-50deg) skewY(-20deg);
+    }
+    71% {
+        transform: skewX(10deg) skewY(-10deg);
+    }
+}
+
+
+
+@keyframes faceLift {
+  0% {
+    transform: translateX(-60%);
+  }
+  100% {
+    transform: translateX(-30%);
+  }
+}
+@keyframes earLift {
+  0% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+  
+
+  </style>
+
+  
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+  
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  
+  <title>Anshu Web</title>
+  <link rel="icon" href="img/main.png" type="image/x-icon">
+
+  
+  <meta content="Anshu Web" property="og:site_name">
+  <meta property="og:type" content="website">
+  <meta content="https://t.me/Cyber_ansh" property="og:url">
+  <meta content="Anshu" property="og:title">
+  <meta content="img/main.png" property="og:image">
+  <meta content="Anshu website | Celebrating My First Steps in Web Development 🌟 This project marks the beginning of my exciting journey into the world of web development." property="og:description">
+</head>
+<body>
+  <div id="gradient"></div>
+  <canvas id="fireworksCanvas"></canvas>
+
+  
+  <div id="menu-icon">
+    <i class="fas fa-bars"></i> 
+  </div>
+
+  <div id="sidebar">
+  		
+  	<a href="https://t.me/Anshu1286" id="dev">DEVELOPER</a>
+    <a href="https://t.me/ans_X_bot" id="channel">CHANNEL</a>
+    <a href="https://t.me/ansh_hack" id="group">GROUP</a>
+    <a href="https://t.me/ansh_hack" id="source-code">NETWORK</a>
+    <a href="https://t.me/ans_X_bot" id="developer">Team </a>
+    <a href="https://anshu908.github.io/graphic-designer-portfolio/" id="Music">ABOUT</a>
+    <a href="https://t.me/Cyber_ansh" id="allsource">CONTACT</a>
+  </div>
+
+  <div id="overlay"></div>
+  <div class="png-image">
+    <img id="random-image" src="">
+  </div>
+<div class="glitch" data-glitch="Anshu">Anshu</div>
+  
+<div class="about-text">About Me</div>
+    <div id="greeting-text"></div>
+
+<div class="about-me-content">
+    🌟 Welcome to My Website! 🌟<br>
+    Hey, I'm Anshu, I'm 16 year old from the beautiful land of Uttar Pradesh! 🇮🇳<br>
+    I’m not a pro coder, just a curious learner 👨‍💻<br>
+    Coding is my way of having fun and passing time 🎮<br>
+    I run a Telegram channel called @ans_X_bot, where I share my bot and codes 🚀<br>
+    Feel free to join anytime and explore what I’m working on! 💡<br>
+    Have any questions? Or just want to say hi? DM me on Telegram anytime! 💬 <br>
+    🌈 Let’s make this coding journey awesome together! 💪
+</div>
+
+  <div class="skill-text-main">My Skills</div>
+  
+    <div class="skills-wrapper">
+        <div class="skill-container">
+            <div class="skill-info">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Icon" class="skill-icon">
+                <span class="skill-text">Python</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress python"></div>
+            </div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-info">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg" alt="HTML Icon" class="skill-icon">
+                <span class="skill-text">HTML</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress html"></div>
+            </div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-info">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS Icon" class="skill-icon">
+                <span class="skill-text">CSS</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress css"></div>
+            </div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-info">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript Icon" class="skill-icon">
+                <span class="skill-text">JavaScript</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress javascript"></div>
+            </div>
+        </div>
+
+        <div class="skill-container">
+            <div class="skill-info">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript Icon" class="skill-icon">
+                <span class="skill-text">TypeScript</span>
+            </div>
+            <div class="skill-bar">
+                <div class="skill-progress typescript"></div>
+            </div>
+        </div>
+      <div class="skill-container">
+         <div class="skill-info">
+            <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="Java Icon" class="skill-icon">
+            <span class="skill-text">Java</span>
+         </div>
+         <div class="skill-bar">
+           <div class="skill-progress java"></div>
+        </div>
+      </div>
+
+      <div class="skill-container">
+         <div class="skill-info">
+            <img src="img/mongo.png" alt="MongoDB Icon" class="skill-icon">
+            <span class="skill-text">MongoDB</span>
+         </div>
+         <div class="skill-bar">
+           <div class="skill-progress mongodb"></div>
+         </div>
+      </div>
+      
+    </div>
+<div class="my-bots-txt">
+      My Projects
+</div>
+  
+  <div class="chiku">
+      <img class="chiku-profile-img" src="img/Chiku.png" alt="">
+      <div class="chiku-description-bg"></div>
+      
+      <div class="chiku-description">
+        <p>🤖 An Cute Intelligent AI Chatbot crafted with the power of <br>
+        JavaScript 💻 Created with passion by @ans_X_bot 🚀
+        </p>
+      </div>
+      
+      <div class="chiku-btn">
+        <a href="https://anshu908.github.io/chat_gpt_web/">Chat With Chiku</a>
+      </div>
+      <div class="repo-btn">
+        <a href="https://github.com/">Bot Repository</a>
+      </div>
+   </div>
+  <div class="Neko">
+      <img class="Neko-profile-img" src="img/nekos.png" alt="">
+      <div class="Neko-description-bg"></div>
+      <div class="Neko-description">
+        <p>🐱 A Random Neko Image Generator built with JavaScript 🎨<br>
+    ✨ Created with care by @ans_X_bot 🚀
+        </p>
+      </div>
+      <div class="Neko-btn">
+        <a href="https://anshu908.github.io/Resume-portfolio-/">Visit Web</a>
+      </div>
+      <div class="Nekos-btn">
+        <a href="https://t.me/Cyber_ansh">Devloper</a>
+      </div>
+    </div>
+  <div class="Music">
+      <img class="Music-profile-img" src="img/music.png" alt="">
+      <div class="Music-description-bg"></div>
+      
+      <div class="Music-description">
+        <p>🎶 My Personal Music Player Website, crafted with JavaScript magic ✨<br>
+    🎧 Proudly made by @ans_X_bot 🚀
+        </p>
+      </div>
+      
+      <div class="Music-btn">
+        <a href="https://anshu908.github.io/Resume-portfolio-/">Visit Web</a>
+      </div>
+      <div class="Music2-btn">
+        <a href="https://t.me/Cyber_ansh">Deploper</a>
+      </div>
+   </div>
+  <div class="Pokedex">
+      <img class="Pokedex-profile-img" src="img/pokedex.png" alt="">
+      <div class="Pokedex-description-bg"></div>
+      
+      <div class="Pokedex-description">
+        <p>🧑‍💻 A Pokedex Website powered by PokeAPI 🔍<br>
+    Catch 'em all and discover every Pokémon's details! 🕹️<br>
+    Made in JavaScript by @ans_X_bot 🎮
+        </p>
+      </div>
+      
+      <div class="Pokedex-btn">
+        <a href="https://muralibotz.github.io/Pokedex">Visit Web</a>
+      </div>
+      <div class="Pokedex2-btn">
+        <a href="https://t.me/Cyber_ansh">Devloper</a>
+      </div>
+  </div>
+  <div class="Insta">
+      <img class="Insta-profile-img" src="img/insta.png" alt="">
+      <div class="Insta-description-bg"></div>
+      
+      <div class="Insta-description">
+        <p>📥 An Instagram Video & Post Downloader 🔗<br>
+         Brought to you by @ans_X_bot & Team Anshu 💻
+        </p>
+      </div>
+      
+      <div class="Insta-btn">
+        <a href="https://muralibotz.github.io/Insta">Visit Web</a>
+      </div>
+      <div class="Insta2-btn">
+        <a href="https://t.me/Cyber_ansh">Devloper</a>
+      </div>
+  </div>
+  <div class="Ai">
+      <img class="Ai-profile-img" src="img/ai.png" alt="">
+      <div class="Ai-description-bg"></div>
+      
+      <div class="Ai-description">
+        <p>🎨 An Animated AI Image Generator 🖼️ <br>
+    Crafted by @ans_X_bot & Team Anshu 🤖✨
+        </p>
+      </div>
+      
+      <div class="Ai-btn">
+        <a href="https://muralibotz.github.io/Image-Gen">Visit Web</a>
+      </div>
+      <div class="Ai2-btn">
+        <a href="https://t.me/Cyber_ansh">Devloper</a>
+      </div>
+  </div>
+  <div class="github-stats-text">
+      My Github Stats
+    </div>
+    <div class="visitors-text">
+      Total Visitors
+    </div>
+    <a target="_blank">
+      <img class="visitors" src="https://profile-counter.glitch.me/anshopi/count.svg" alt="" />
+    </a>
+  
+    <a target="_blank">
+      <img class="github-stats" src="https://github-readme-stats.vercel.app/api?username=rishabhopi&show_icons=true&theme=vision-friendly-dark" alt="GitHub Stats" />
+    </a>
+    <a target="_blank">
+      <img class="Zgithub-stats" src="https://github-readme-streak-stats.herokuapp.com/?user=rishabhopi&theme=chartreuse-dark&hide_border=True&bg_color=000000" alt="GitHub Stats" />
+    </a>
+    <a target="_blank">
+      <img class="most-lang" src="https://github-readme-stats.vercel.app/api/top-langs/?username=rishabhopi&size_weight=0.0005&count_weight=0.5&layout=compact&theme=vision-friendly-dark" alt="GitHub Stats" />
+    </a>
+  
+  
+  <div class="contact-me-text">
+      Contact Me 
+    </div>
+  <div class="contact-me-c">
+    🌟 Feel Free to Reach Out and Connect with Me on the Platforms Below! 🌟<br>
+    I'm always here to chat and collaborate! 💬✨
+  </div>
+    <div class="social-media">
+      <a href="https://t.me/Cyber_ansh" style="--i:6"><i class='bx bxl-telegram'></i></a>
+      <a href="https://Instagram.com/anshopi__" style="--i:7"><i class='bx bxl-instagram'></i></a>
+      <a href="mailto:anshppt19@gmail.com" style="--i:8"><i class='bx bxl-gmail'></i></a>
+      <a href="https://github.com/anshu908" style="--i:8"><i class='bx bxl-github'></i></a>
+      <a href="https://codepen.io/anshopi" style="--i:8"><i class='bx bxl-codepen'></i></a>
+
+    </div>
+  <span class="loader"></span>
+  <footer class="footer">
+  <div class="footer-content">
+    <p>&copy; 2024 Anshu. All Rights Reserved.</p>
+    <p>Exploring the limitless Possibilities of codes.. Made By Anshu </p>
+  </div>
+</footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    var menuIcon = document.getElementById('menu-icon');
+    var sidebar = document.getElementById('sidebar');
+    var overlay = document.getElementById('overlay');
+
+    menuIcon.addEventListener('click', function() {
+        if (sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        } else {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        }
+    });
+
+    overlay.addEventListener('click', function() {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+});
+
+
+
+        
+function updateGreeting() {
+    var kolkataOffset = 5.5 * 60;
+    var currentTime = new Date();
+    var utcTime = currentTime.getTime() + currentTime.getTimezoneOffset() * 60000;
+    var kolkataTime = new Date(utcTime + kolkataOffset * 60000);
+    var hours = kolkataTime.getHours();
+
+    var greetingMessage = "Hello, ";
+    if (hours >= 5 && hours < 12) {
+        greetingMessage += "Good Morning! ";
+    } else if (hours >= 12 && hours < 16) {
+        greetingMessage += "Good Afternoon! ";
+    } else if (hours >= 16 && hours < 19) {
+        greetingMessage += "Good Evening ! ";
+    } else if (hours >= 20 && hours < 23) {
+        greetingMessage += "I Hope Your Evening Was Wonderful !";
+    } else if (hours >= 23 && hours < 5) {
+        greetingMessage += "Glad To See You at this midnight !";
+    } else {
+        greetingMessage = "";
+    }
+    
+    document.getElementById('greeting-text').textContent = greetingMessage;
+}
+
+updateGreeting();
+
+
+const imageUrls = [
+            
+            "img/Neonboy1.png",
+            "img/Neonboy2.png",
+            "img/Neinboy3.png",
+            "img/Neonboy4.png",
+           // "img/Neonboy5.png",
+            "img/Murali2.png",
+            "img/Murali3.png",
+            "img/Murali4.png",
+            
+        ];
+        const randomImageUrl = imageUrls[Math.floor(Math.random() * imageUrls.length)];
+        document.getElementById("random-image").src = randomImageUrl;
+
+  </script>
+  <script>const canvas = document.getElementById('fireworksCanvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    
+    let fireworks = []; // Store multiple fireworks
+    const rayLength = 20; // Small finger-sized ray
+    const shadowLength = 60; // Length of the neon shadow trail
+    const particleCount = 400; // Number of particles
+    const particleSize = 1.2; // Size of each particle
+    
+    function getRandomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        return `rgba(${r}, ${g}, ${b}, 0.9)`;
+    }
+    
+    function createFirework() {
+        const startX = Math.random() * canvas.width;
+        const endX = Math.random() * canvas.width;
+        const startY = canvas.height;
+        const endY = Math.random() * canvas.height * 0.5;
+        
+        const firework = {
+            startX: startX,
+            startY: startY,
+            endX: endX,
+            endY: endY,
+            currentX: startX,
+            currentY: startY,
+            explosion: false,
+            particles: [],
+            color: getRandomColor(),
+            shadowTrail: [], // Array to hold shadow trail positions
+            explosionTime: null // Time when the explosion happens
+        };
+    
+        fireworks.push(firework); // Add firework to the array
+    }
+    
+    function drawRay(firework) {
+        if (!firework.explosion) {
+            const angle = Math.atan2(firework.endY - firework.currentY, firework.endX - firework.currentX);
+            
+            // Draw the shadow trail behind the ray
+            firework.shadowTrail.push({ x: firework.currentX, y: firework.currentY, alpha: 0.5 });
+            firework.shadowTrail.forEach((trail, index) => {
+                ctx.beginPath();
+                ctx.moveTo(trail.x, trail.y);
+                ctx.lineTo(
+                    trail.x - shadowLength * Math.cos(angle),
+                    trail.y - shadowLength * Math.sin(angle)
+                );
+                ctx.strokeStyle = `rgba(255, 255, 255, ${trail.alpha})`;
+                ctx.lineWidth = 2;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'white';
+                ctx.stroke();
+    
+                trail.alpha -= 0.02;
+                if (trail.alpha <= 0) {
+                    firework.shadowTrail.splice(index, 1);
+                }
+            });
+    
+            ctx.beginPath();
+            ctx.moveTo(firework.currentX, firework.currentY);
+            ctx.lineTo(
+                firework.currentX - rayLength * Math.cos(angle),
+                firework.currentY - rayLength * Math.sin(angle)
+            );
+            ctx.strokeStyle = firework.color;
+            ctx.lineWidth = 4;
+            ctx.shadowBlur = 0; // No glow
+            ctx.stroke();
+    
+            // Move towards target
+            firework.currentY -= (firework.startY - firework.endY) / 50;
+            firework.currentX += (firework.endX - firework.startX) / 50;
+    
+            if (Math.abs(firework.currentY - firework.endY) < 5) {
+                firework.explosion = true;
+                firework.explosionTime = Date.now(); // Set the explosion time
+                explode(firework);
+            }
+        }
+    }
+    
+    function explode(firework) {
+        for (let i = 0; i < particleCount; i++) {
+            const angle = Math.random() * 2 * Math.PI;  // Random angle for particle direction
+            const speed = Math.random() * 2 + 0.5; // Random speed for the particles
+            
+            firework.particles.push({
+                x: firework.endX,
+                y: firework.endY,
+                speedX: Math.cos(angle) * speed,
+                speedY: Math.sin(angle) * speed,
+                size: particleSize,
+                alpha: 1,
+                color: getRandomColor()
+            });
+        }
+    }
+    
+    function drawParticles(particles) {
+        particles.forEach((particle, index) => {
+            if (particle.alpha > 0) {
+                ctx.fillStyle = particle.color;
+                ctx.beginPath();
+                ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
+                ctx.fill();
+    
+                particle.x += particle.speedX;
+                particle.y += particle.speedY;
+                particle.alpha -= 0.004; // Fade effect
+    
+                // Remove particle if alpha is low
+                if (particle.alpha <= 0) {
+                    particles.splice(index, 1);
+                }
+            }
+        });
+    }
+    
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        fireworks.forEach((firework, index) => {
+            drawRay(firework);
+            if (firework.explosion) {
+                drawParticles(firework.particles);
+    
+                // Check if 4 seconds have passed since explosion
+                if (Date.now() - firework.explosionTime > 4000) {
+                    fireworks.splice(index, 1); // Remove the firework after particles disappear
+                }
+            }
+        });
+    
+        requestAnimationFrame(animate);
+    }
+    
+    // Launch a new firework every 4 seconds
+    setInterval(createFirework, 4000);
+    animate();
+    
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+    </script>
+  <script>
+    var gradientColorsArray = new Array(
+"#3f51b5",
+"#ff4081",
+"#6a1b9a",
+"#43a047",
+"#e53935",
+"#00897b",
+"#fbc02d",
+"#1976d2",
+"#8e24aa",
+"#7b1fa2",
+"#f57c00",
+"#f44336",
+"#303f9f",
+
+    "#0d1b2a",
+"#1b2631",
+"#3a506b",
+"#5bc0be",
+"#f0ead2",
+"#ff6f61",
+"#d45d00",
+"#3faffa",
+"#fdc830",
+"#ff9a00",
+"#3e1a47",
+"#e45c80",
+"#4f7cac",
+
+);
+
+// Finnally Fixed Colour Changing Background animation 
+
+var gradientTransitionStep = 0;
+
+
+var gradientColorIndices = [0, 1, 2, 3];
+
+
+var gradientTransitionSpeed = 0.004;
+
+function updateGradientBackground() {
+    if (typeof jQuery === 'undefined') return; 
+
+    
+    var currentLeftColorIndex = gradientColorIndices[0];
+    var nextLeftColorIndex = gradientColorIndices[1];
+    var currentRightColorIndex = gradientColorIndices[2];
+    var nextRightColorIndex = gradientColorIndices[3];
+
+    var currentLeftColorHex = gradientColorsArray[currentLeftColorIndex];
+    var nextLeftColorHex = gradientColorsArray[nextLeftColorIndex];
+    var currentRightColorHex = gradientColorsArray[currentRightColorIndex];
+    var nextRightColorHex = gradientColorsArray[nextRightColorIndex];
+
+    var inverseGradientStep = 1 - gradientTransitionStep;
+
+    function hexToRgb(hex) {
+        var r = parseInt(hex.slice(1, 3), 16);
+        var g = parseInt(hex.slice(3, 5), 16);
+        var b = parseInt(hex.slice(5, 7), 16);
+        return [r, g, b];
+    }
+
+    var [rLeftStart, gLeftStart, bLeftStart] = hexToRgb(currentLeftColorHex);
+    var [rLeftEnd, gLeftEnd, bLeftEnd] = hexToRgb(nextLeftColorHex);
+    var [rRightStart, gRightStart, bRightStart] = hexToRgb(currentRightColorHex);
+    var [rRightEnd, gRightEnd, bRightEnd] = hexToRgb(nextRightColorHex);
+
+    var redLeft = Math.round(inverseGradientStep * rLeftStart + gradientTransitionStep * rLeftEnd);
+    var greenLeft = Math.round(inverseGradientStep * gLeftStart + gradientTransitionStep * gLeftEnd);
+    var blueLeft = Math.round(inverseGradientStep * bLeftStart + gradientTransitionStep * bLeftEnd);
+    var leftGradientColor = "rgb(" + redLeft + "," + greenLeft + "," + blueLeft + ")";
+
+    var redRight = Math.round(inverseGradientStep * rRightStart + gradientTransitionStep * rRightEnd);
+    var greenRight = Math.round(inverseGradientStep * gRightStart + gradientTransitionStep * gRightEnd);
+    var blueRight = Math.round(inverseGradientStep * bRightStart + gradientTransitionStep * bRightEnd);
+    var rightGradientColor = "rgb(" + redRight + "," + greenRight + "," + blueRight + ")";
+
+    
+    $('#gradient').css({
+        background: "-webkit-gradient(linear, left top, right top, from(" + leftGradientColor + "), to(" + rightGradientColor + "))"
+    }).css({
+        background: "-moz-linear-gradient(left, " + leftGradientColor + " 0%, " + rightGradientColor + " 100%)"
+    });
+
+    gradientTransitionStep += gradientTransitionSpeed;
+    if (gradientTransitionStep >= 1) {
+        gradientTransitionStep %= 1;
+        gradientColorIndices[0] = gradientColorIndices[1];
+        gradientColorIndices[2] = gradientColorIndices[3];
+
+        gradientColorIndices[1] = (gradientColorIndices[1] + Math.floor(1 + Math.random() * (gradientColorsArray.length - 1))) % gradientColorsArray.length;
+        gradientColorIndices[3] = (gradientColorIndices[3] + Math.floor(1 + Math.random() * (gradientColorsArray.length - 1))) % gradientColorsArray.length;
+    }
+}
+
+
+setInterval(updateGradientBackground, 50); // It Means 10 milliseconds 
+
+
+  </script>
+</body>
+<html>
